@@ -79,12 +79,13 @@ def main(gdalversion, runtime, deploy):
             try:
                 s3.head_bucket(Bucket=f"lambgeo-{region}")
             except client.exceptions.ClientError:
-                s3.create_bucket(
-                    Bucket=f"lambgeo-{region}",
-                    CreateBucketConfiguration={
-                        "LocationConstraint": region,
+                ops = {}
+                if region != "us-east-1":
+                    ops["CreateBucketConfiguration"] = {
+                        "LocationConstraint": region
                     }
-                )
+
+                s3.create_bucket(Bucket=f"lambgeo-{region}", **ops)
 
             with open("package.zip", "rb") as data:
                 s3.upload_fileobj(
