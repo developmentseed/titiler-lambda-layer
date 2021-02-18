@@ -21,8 +21,8 @@ AWS_REGIONS = [
     "us-west-2",
 ]
 layers = [
-    "titiler-gdal24-python38",
-    "titiler-gdal32-python38",
+    "titiler-gdal24",
+    "titiler-gdal32",
 ]
 
 
