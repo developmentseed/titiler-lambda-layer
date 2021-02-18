@@ -15,7 +15,7 @@ rm -rdf $PREFIX/python/boto3* \
 echo "Remove useless files"
 rm -rdf $PREFIX/share/doc \
   && rm -rdf $PREFIX/share/man \
-  && rm -rdf $PREFIX/share/hdf*
+  && rm -rdf $PREFIX/share/hdf* \
   && rm -rdf $PREFIX/share/gtk-doc*
 
 find $PREFIX/python -type d -a -name 'tests' -print0 | xargs -0 rm -rf
