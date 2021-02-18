@@ -73,15 +73,35 @@ def main(gdalversion, runtime, deploy):
             click.echo(f"AWS Region: {region}", err=True)
             client = session.client("lambda", region_name=region, config=config)
 
-            click.echo("Publishing new version", err=True)
-            with open("package.zip", 'rb') as zf:
-                res = client.publish_layer_version(
-                    LayerName=layer_name,
-                    Content={"ZipFile": zf.read()},
-                    CompatibleRuntimes=[runtime],
-                    Description=description,
-                    LicenseInfo="MIT"
+            # upload the package to s3
+            s3 = session.client("s3", region_name=region)
+
+            try:
+                s3.head_bucket(Bucket=f"lambgeo-{region}")
+            except client.exceptions.ClientError:
+                s3.create_bucket(
+                    Bucket=f"lambgeo-{region}",
+                    CreateBucketConfiguration={
+                        "LocationConstraint": region,
+                    }
                 )
+
+            with open("package.zip", "rb") as data:
+                s3.upload_fileobj(
+                    data, f"lambgeo-{region}", f"layers/{layer_name}.zip"
+                )
+
+            click.echo("Publishing new version", err=True)
+            res = client.publish_layer_version(
+                LayerName=layer_name,
+                Content={
+                    "S3Bucket": f"lambgeo-{region}",
+                    "S3Key": f"layers/{layer_name}.zip",
+                },
+                CompatibleRuntimes=[runtime],
+                Description=description,
+                LicenseInfo="MIT"
+            )
 
             click.echo("Adding permission", err=True)
             client.add_layer_version_permission(
@@ -91,6 +111,13 @@ def main(gdalversion, runtime, deploy):
                 Action='lambda:GetLayerVersion',
                 Principal='*',
             )
+
+
+def head_bucket(name, client):
+    try:
+        return client.head_bucket(Bucket=name)
+    except client.exceptions.ClientError:
+        return False
 
 
 if __name__ == '__main__':
