@@ -23,6 +23,7 @@ AWS_REGIONS = [
 layers = [
     "titiler-gdal24",
     "titiler-gdal32",
+    "titiler-gdal33",
 ]
 
 

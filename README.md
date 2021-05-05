@@ -15,7 +15,7 @@
 numpy
 pygeos>=0.9,<0.10
 rasterio~=1.2
-titiler==0.1.0
+titiler{core/mosaic/application}==0.3.1
 
 # those package are in the docker image but not in the lambda env
 requests
@@ -25,7 +25,8 @@ jinja2
 
 ### Arns format
 
-- `arn:aws:lambda:${region}:524387336408:layer:titiler-gdal32:${version}`
+- `arn:aws:lambda:${region}:524387336408:layer:titiler-gdal33:${version}`
+- `arn:aws:lambda:${region}:524387336408:layer:titiler-gdal32:${version}` **archived**
 - `arn:aws:lambda:${region}:524387336408:layer:titiler-gdal24:${version}`
 
 ### Regions

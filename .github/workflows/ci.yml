@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         runtimes: ['python3.8']
-        gdal-version: [2.4, 3.2]
+        gdal-version: [2.4, 3.3]
     steps:
       - uses: actions/checkout@v2
 
