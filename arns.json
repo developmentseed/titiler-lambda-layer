@@ -4,13 +4,18 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:ap-northeast-1:524387336408:layer:titiler-gdal24:2",
-                "version": 2
+                "arn": "arn:aws:lambda:ap-northeast-1:524387336408:layer:titiler-gdal24:3",
+                "version": 3
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:ap-northeast-1:524387336408:layer:titiler-gdal32:2",
                 "version": 2
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:ap-northeast-1:524387336408:layer:titiler-gdal33:1",
+                "version": 1
             }
         ]
     },
@@ -19,13 +24,18 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:ap-northeast-2:524387336408:layer:titiler-gdal24:2",
-                "version": 2
+                "arn": "arn:aws:lambda:ap-northeast-2:524387336408:layer:titiler-gdal24:3",
+                "version": 3
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:ap-northeast-2:524387336408:layer:titiler-gdal32:2",
                 "version": 2
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:ap-northeast-2:524387336408:layer:titiler-gdal33:1",
+                "version": 1
             }
         ]
     },
@@ -34,13 +44,18 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:ap-south-1:524387336408:layer:titiler-gdal24:2",
-                "version": 2
+                "arn": "arn:aws:lambda:ap-south-1:524387336408:layer:titiler-gdal24:3",
+                "version": 3
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:ap-south-1:524387336408:layer:titiler-gdal32:2",
                 "version": 2
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:ap-south-1:524387336408:layer:titiler-gdal33:1",
+                "version": 1
             }
         ]
     },
@@ -49,13 +64,18 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:ap-southeast-1:524387336408:layer:titiler-gdal24:1",
-                "version": 1
+                "arn": "arn:aws:lambda:ap-southeast-1:524387336408:layer:titiler-gdal24:2",
+                "version": 2
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:ap-southeast-1:524387336408:layer:titiler-gdal32:2",
                 "version": 2
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:ap-southeast-1:524387336408:layer:titiler-gdal33:1",
+                "version": 1
             }
         ]
     },
@@ -64,13 +84,18 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:ap-southeast-2:524387336408:layer:titiler-gdal24:1",
-                "version": 1
+                "arn": "arn:aws:lambda:ap-southeast-2:524387336408:layer:titiler-gdal24:2",
+                "version": 2
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:ap-southeast-2:524387336408:layer:titiler-gdal32:2",
                 "version": 2
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:ap-southeast-2:524387336408:layer:titiler-gdal33:1",
+                "version": 1
             }
         ]
     },
@@ -79,13 +104,18 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:ca-central-1:524387336408:layer:titiler-gdal24:1",
-                "version": 1
+                "arn": "arn:aws:lambda:ca-central-1:524387336408:layer:titiler-gdal24:2",
+                "version": 2
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:ca-central-1:524387336408:layer:titiler-gdal32:2",
                 "version": 2
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:ca-central-1:524387336408:layer:titiler-gdal33:1",
+                "version": 1
             }
         ]
     },
@@ -94,13 +124,18 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:eu-central-1:524387336408:layer:titiler-gdal24:1",
-                "version": 1
+                "arn": "arn:aws:lambda:eu-central-1:524387336408:layer:titiler-gdal24:2",
+                "version": 2
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:eu-central-1:524387336408:layer:titiler-gdal32:2",
                 "version": 2
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:eu-central-1:524387336408:layer:titiler-gdal33:1",
+                "version": 1
             }
         ]
     },
@@ -109,13 +144,18 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:eu-north-1:524387336408:layer:titiler-gdal24:1",
-                "version": 1
+                "arn": "arn:aws:lambda:eu-north-1:524387336408:layer:titiler-gdal24:2",
+                "version": 2
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:eu-north-1:524387336408:layer:titiler-gdal32:2",
                 "version": 2
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:eu-north-1:524387336408:layer:titiler-gdal33:1",
+                "version": 1
             }
         ]
     },
@@ -124,13 +164,18 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:eu-west-1:524387336408:layer:titiler-gdal24:1",
-                "version": 1
+                "arn": "arn:aws:lambda:eu-west-1:524387336408:layer:titiler-gdal24:2",
+                "version": 2
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:eu-west-1:524387336408:layer:titiler-gdal32:2",
                 "version": 2
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:eu-west-1:524387336408:layer:titiler-gdal33:1",
+                "version": 1
             }
         ]
     },
@@ -139,13 +184,18 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:eu-west-2:524387336408:layer:titiler-gdal24:1",
-                "version": 1
+                "arn": "arn:aws:lambda:eu-west-2:524387336408:layer:titiler-gdal24:2",
+                "version": 2
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:eu-west-2:524387336408:layer:titiler-gdal32:2",
                 "version": 2
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:eu-west-2:524387336408:layer:titiler-gdal33:1",
+                "version": 1
             }
         ]
     },
@@ -154,13 +204,18 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:eu-west-3:524387336408:layer:titiler-gdal24:1",
-                "version": 1
+                "arn": "arn:aws:lambda:eu-west-3:524387336408:layer:titiler-gdal24:2",
+                "version": 2
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:eu-west-3:524387336408:layer:titiler-gdal32:2",
                 "version": 2
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:eu-west-3:524387336408:layer:titiler-gdal33:1",
+                "version": 1
             }
         ]
     },
@@ -169,13 +224,18 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:sa-east-1:524387336408:layer:titiler-gdal24:1",
-                "version": 1
+                "arn": "arn:aws:lambda:sa-east-1:524387336408:layer:titiler-gdal24:2",
+                "version": 2
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:sa-east-1:524387336408:layer:titiler-gdal32:2",
                 "version": 2
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:sa-east-1:524387336408:layer:titiler-gdal33:1",
+                "version": 1
             }
         ]
     },
@@ -184,12 +244,17 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:us-east-1:524387336408:layer:titiler-gdal24:1",
-                "version": 1
+                "arn": "arn:aws:lambda:us-east-1:524387336408:layer:titiler-gdal24:2",
+                "version": 2
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:us-east-1:524387336408:layer:titiler-gdal32:1",
+                "version": 1
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:us-east-1:524387336408:layer:titiler-gdal33:1",
                 "version": 1
             }
         ]
@@ -199,12 +264,17 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:us-east-2:524387336408:layer:titiler-gdal24:1",
-                "version": 1
+                "arn": "arn:aws:lambda:us-east-2:524387336408:layer:titiler-gdal24:2",
+                "version": 2
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:us-east-2:524387336408:layer:titiler-gdal32:1",
+                "version": 1
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:us-east-2:524387336408:layer:titiler-gdal33:1",
                 "version": 1
             }
         ]
@@ -214,12 +284,17 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:us-west-1:524387336408:layer:titiler-gdal24:1",
-                "version": 1
+                "arn": "arn:aws:lambda:us-west-1:524387336408:layer:titiler-gdal24:2",
+                "version": 2
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:us-west-1:524387336408:layer:titiler-gdal32:1",
+                "version": 1
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:us-west-1:524387336408:layer:titiler-gdal33:1",
                 "version": 1
             }
         ]
@@ -229,12 +304,17 @@
         "layers": [
             {
                 "name": "titiler-gdal24",
-                "arn": "arn:aws:lambda:us-west-2:524387336408:layer:titiler-gdal24:1",
-                "version": 1
+                "arn": "arn:aws:lambda:us-west-2:524387336408:layer:titiler-gdal24:2",
+                "version": 2
             },
             {
                 "name": "titiler-gdal32",
                 "arn": "arn:aws:lambda:us-west-2:524387336408:layer:titiler-gdal32:1",
+                "version": 1
+            },
+            {
+                "name": "titiler-gdal33",
+                "arn": "arn:aws:lambda:us-west-2:524387336408:layer:titiler-gdal33:1",
                 "version": 1
             }
         ]
