@@ -3,6 +3,13 @@ FROM public.ecr.aws/lambda/python:${PYTHON_VERSION}
 
 ARG TITILER_VERSION=0.7.1
 
+ENV PREFIX /opt
+RUN mkdir ${PREFIX}/python
+
+ENV \
+  LANG=en_US.UTF-8 \
+  LC_ALL=en_US.UTF-8
+
 RUN pip install \
     titiler.core==${TITILER_VERSION} \
     titiler.mosaic==${TITILER_VERSION} \
@@ -18,4 +25,4 @@ RUN python3 -m py_compile $PREFIX/python/titiler/application/handler.py
 ENV PYTHONPATH=$PYTHONPATH:$PREFIX/python
 ENV PATH=$PREFIX/python/bin:$PATH
 
-CMD ["echo", "hello world"]
+ENTRYPOINT bash

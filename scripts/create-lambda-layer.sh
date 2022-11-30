@@ -3,6 +3,7 @@ echo "-----------------------"
 echo "Creating lambda layer"
 echo "-----------------------"
 
+yum makecache fast
 yum install -y zip binutils
 
 echo "Remove lambda python packages"

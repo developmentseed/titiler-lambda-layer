@@ -3,8 +3,6 @@
 import os
 import click
 
-import docker
-
 from boto3.session import Session as boto3_session
 from botocore.client import Config
 
@@ -34,33 +32,6 @@ AWS_REGIONS = [
 @click.option('--deploy', is_flag=True)
 def main(runtime, version, deploy):
     """Build and Deploy Layers."""
-    client = docker.from_env()
-
-    docker_name = f"lambgeo/titiler-py{runtime}:{version}"
-    click.echo(f"Building image: {docker_name}...")
-    client.images.build(
-        path="./",
-        platform="linux/amd64",
-        dockerfile="Dockerfile",
-        tag=docker_name,
-        buildargs={
-            "PYTHON_VERSION": runtime,
-            "TITILER_VERSION": version,
-        },
-        rm=True,
-    )
-
-    click.echo("Create Package")
-    client.containers.run(
-        platform="linux/amd64",
-        image=docker_name,
-        command="/local/scripts/create-lambda-layer.sh",
-        entrypoint="bash",
-        remove=True,
-        volumes={os.path.abspath("./"): {"bind": "/local/", "mode": "rw"}},
-        user=0,
-    )
-
     version_nodot = version.replace(".", "")
     description = f"TiTiler Lambda Layer ({version})"
 
