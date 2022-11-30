@@ -69,7 +69,7 @@ def main(runtime, version, deploy):
 
             click.echo("Publishing new version", err=True)
             res = client.publish_layer_version(
-                LayerName=layer_name,
+                LayerName="titiler",
                 Content={
                     "S3Bucket": f"lambgeo-{region}",
                     "S3Key": f"layers/titiler{version_nodot}.zip",
@@ -81,7 +81,7 @@ def main(runtime, version, deploy):
 
             click.echo("Adding permission", err=True)
             client.add_layer_version_permission(
-                LayerName=layer_name,
+                LayerName="titiler",
                 VersionNumber=res["Version"],
                 StatementId='make_public',
                 Action='lambda:GetLayerVersion',
