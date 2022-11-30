@@ -2,21 +2,21 @@ name: CI
 
 on: [push]
 
+env:
+  PYTHON_VERSION: '3.9'
+  TITILER_VERSION: '0.7.1'
+
 jobs:
   build:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
-    strategy:
-      matrix:
-        runtimes: ['python3.8']
-        gdal-version: [2.4, 3.3]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: 3.11
 
       - name: Install dependencies
         run: |
@@ -37,4 +37,4 @@ jobs:
           aws-region: us-east-1
 
       - name: Build and Deploy layers
-        run: python scripts/deploy.py ${{ matrix.gdal-version }} ${{ matrix.runtimes }} --deploy
+        run: python scripts/deploy.py ${{ env.PYTHON_VERSION }} ${{ env.TITILER_VERSION }} --deploy

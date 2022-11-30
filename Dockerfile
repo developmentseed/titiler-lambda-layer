@@ -1,14 +1,21 @@
-ARG VERSION
-ARG RUNTIME
+ARG PYTHON_VERSION=3.9
+FROM public.ecr.aws/lambda/python:${PYTHON_VERSION}
 
-FROM lambgeo/lambda-gdal:${VERSION}-${RUNTIME}
+ARG TITILER_VERSION=0.7.1
 
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt --no-binary numpy,rasterio,pygeos,pydantic -t $PREFIX/python
-RUN rm requirements.txt
+RUN pip install \
+    titiler.core==${TITILER_VERSION} \
+    titiler.mosaic==${TITILER_VERSION} \
+    titiler.application==${TITILER_VERSION} \
+    requests \
+    pyyaml \
+    jinja2 \
+    --no-binary pydantic -t $PREFIX/python
 
 COPY handler.py $PREFIX/python/titiler/application/handler.py
 RUN python3 -m py_compile $PREFIX/python/titiler/application/handler.py
 
 ENV PYTHONPATH=$PYTHONPATH:$PREFIX/python
 ENV PATH=$PREFIX/python/bin:$PATH
+
+CMD ["echo", "hello world"]

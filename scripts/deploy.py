@@ -29,38 +29,40 @@ AWS_REGIONS = [
 
 
 @click.command()
-@click.argument('gdalversion', type=str)
 @click.argument('runtime', type=str)
+@click.argument('version', type=str)
 @click.option('--deploy', is_flag=True)
-def main(gdalversion, runtime, deploy):
+def main(runtime, version, deploy):
     """Build and Deploy Layers."""
     client = docker.from_env()
 
-    docker_name = f"lambgeo/titiler:gdal{gdalversion}"
+    docker_name = f"lambgeo/titiler-py{runtime}:{version}"
     click.echo(f"Building image: {docker_name}...")
     client.images.build(
         path="./",
+        platform="linux/amd64",
         dockerfile="Dockerfile",
         tag=docker_name,
         buildargs={
-            "VERSION": gdalversion,
-            "RUNTIME": runtime,
+            "PYTHON_VERSION": runtime,
+            "TITILER_VERSION": version,
         },
         rm=True,
     )
 
     click.echo("Create Package")
     client.containers.run(
+        platform="linux/amd64",
         image=docker_name,
-        command="/bin/sh /local/scripts/create-lambda-layer.sh",
+        command="/local/scripts/create-lambda-layer.sh",
+        entrypoint="bash",
         remove=True,
         volumes={os.path.abspath("./"): {"bind": "/local/", "mode": "rw"}},
         user=0,
     )
 
-    gdalversion_nodot = gdalversion.replace(".", "")
-    layer_name = f"titiler-gdal{gdalversion_nodot}"
-    description = f"Titiler Lambda Layer with GDAL{gdalversion} for {runtime}"
+    version_nodot = version.replace(".", "")
+    description = f"TiTiler Lambda Layer ({version})"
 
     if deploy:
         session = boto3_session()
@@ -68,7 +70,7 @@ def main(gdalversion, runtime, deploy):
         # Increase connection timeout to work around timeout errors
         config = Config(connect_timeout=6000, retries={'max_attempts': 5})
 
-        click.echo(f"Deploying {layer_name}", err=True)
+        click.echo(f"Deploying titiler layer", err=True)
         for region in AWS_REGIONS:
             click.echo(f"AWS Region: {region}", err=True)
             client = session.client("lambda", region_name=region, config=config)
@@ -89,7 +91,9 @@ def main(gdalversion, runtime, deploy):
 
             with open("package.zip", "rb") as data:
                 s3.upload_fileobj(
-                    data, f"lambgeo-{region}", f"layers/{layer_name}.zip"
+                    data,
+                    f"lambgeo-{region}",
+                    f"layers/titiler{version_nodot}.zip",
                 )
 
             click.echo("Publishing new version", err=True)
@@ -97,9 +101,9 @@ def main(gdalversion, runtime, deploy):
                 LayerName=layer_name,
                 Content={
                     "S3Bucket": f"lambgeo-{region}",
-                    "S3Key": f"layers/{layer_name}.zip",
+                    "S3Key": f"layers/titiler{version_nodot}.zip",
                 },
-                CompatibleRuntimes=[runtime],
+                CompatibleRuntimes=[f"python{runtime}"],
                 Description=description,
                 LicenseInfo="MIT"
             )

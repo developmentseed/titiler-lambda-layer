@@ -1,10 +1,11 @@
 #!/bin/bash
 
-GDAL_VERSION=$1
-RUNTIME=$2
+PYTHON_VERSION=$1
+TITILER_VERSION=$2
 
 # Base Image
 docker build \
-    --build-arg VERSION=${GDAL_VERSION} \
-    --build-arg RUNTIME=${RUNTIME} \
-    -t lambgeo/titiler:gdal${GDAL_VERSION}-${RUNTIME} .
+    --platform linux/amd64 \
+    --build-arg PYTHON_VERSION=${PYTHON_VERSION} \
+    --build-arg TITILER_VERSION=${TITILER_VERSION} \
+    -t lambgeo/titiler:${TITILER_VERSION} .
