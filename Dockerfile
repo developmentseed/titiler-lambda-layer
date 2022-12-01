@@ -14,13 +14,12 @@ RUN pip install \
     titiler.core==${TITILER_VERSION} \
     titiler.mosaic==${TITILER_VERSION} \
     titiler.application==${TITILER_VERSION} \
+    mangum \
     requests \
     pyyaml \
     jinja2 \
-    --no-binary pydantic -t $PREFIX/python
-
-COPY handler.py $PREFIX/python/titiler/application/handler.py
-RUN python3 -m py_compile $PREFIX/python/titiler/application/handler.py
+    --no-binary pydantic \
+    -t $PREFIX/python
 
 ENV PYTHONPATH=$PYTHONPATH:$PREFIX/python
 ENV PATH=$PREFIX/python/bin:$PATH
