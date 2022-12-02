@@ -4,6 +4,13 @@
     <img src="https://github.com/lambgeo/titiler-layer/workflows/CI/badge.svg" alt="Test">
 </a>
 
+### TiTiler Version
+
+| TiTiler Version | Layer Version |
+|               --|             --|
+|           0.7.1 |             2 |
+|           0.8.1 |             3 |
+
 ### Arns format
 
 - `arn:aws:lambda:${region}:524387336408:layer:titiler:${version}`
@@ -35,6 +42,10 @@ See [full list of ARN](/arns.json)
 
 Link: https://serverlessrepo.aws.amazon.com/applications/us-east-1/552819999234/TiTiler
 
+> **Note**
+> You can change the TiTiler version by changing the Lambda Layer version `LambdaLayerVersion` parameter before deploying.
+
+SAM Application template
 ```yml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
@@ -65,6 +76,10 @@ Parameters:
       - "true"
       - "false"
 
+  LambdaLayerVersion:
+    Type: String
+    Default: 3
+
 Resources:
   TiTiler:
     Type: AWS::Serverless::Function
@@ -73,7 +88,7 @@ Resources:
       Handler: index.handler
       Description: 'Titiler: Dynamic tiler'
       Layers:
-        - !Sub arn:aws:lambda:${AWS::Region}:524387336408:layer:titiler:2
+        - !Sub arn:aws:lambda:${AWS::Region}:524387336408:layer:titiler:${LambdaLayerVersion}
 
       InlineCode: |
         import logging
