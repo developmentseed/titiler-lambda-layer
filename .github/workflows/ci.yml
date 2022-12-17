@@ -4,7 +4,7 @@ on: [push]
 
 env:
   PYTHON_VERSION: '3.9'
-  TITILER_VERSION: '0.8.1'
+  TITILER_VERSION: '0.10.2'
 
 jobs:
   build:

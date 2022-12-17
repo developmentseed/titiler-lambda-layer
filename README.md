@@ -10,6 +10,7 @@
 |               --|             --|
 |           0.7.1 |             2 |
 |           0.8.1 |             3 |
+|          0.10.2 |             4 |
 
 ### Arns format
 
@@ -78,7 +79,7 @@ Parameters:
 
   LambdaLayerVersion:
     Type: String
-    Default: 3
+    Default: 4
 
 Resources:
   TiTiler:
