@@ -10,8 +10,13 @@ ENV \
   LANG=en_US.UTF-8 \
   LC_ALL=en_US.UTF-8
 
+RUN yum update -y
+
+RUN pip install pip -U
+
 RUN pip install \
     titiler.core==${TITILER_VERSION} \
+    titiler.extensions["stac,cogeo"]==${TITILER_VERSION} \
     titiler.mosaic==${TITILER_VERSION} \
     titiler.application==${TITILER_VERSION} \
     mangum \
