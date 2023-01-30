@@ -29,7 +29,7 @@ Parameters:
 
   LambdaLayerVersion:
     Type: String
-    Default: 4
+    Default: 5
 
 Resources:
   TiTiler:
