@@ -58,7 +58,7 @@ jobs:
       - name: Set module version
         id: titiler_version
         run: |
-          echo version=$(docker run --platform=linux/amd64 --entrypoint '' -it --rm lambgeo/titiler:latest python -c'import titiler.core; print(titiler.core.__version__)') >> $GITHUB_OUTPUT
+          echo version=$(docker run --platform=linux/amd64 --entrypoint '' --rm lambgeo/titiler:latest python -c'import titiler.core; print(titiler.core.__version__)') >> $GITHUB_OUTPUT
 
       - name: Print Version
         run: |
