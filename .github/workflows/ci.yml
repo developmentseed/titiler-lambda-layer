@@ -4,7 +4,6 @@ on: [push]
 
 env:
   PYTHON_VERSION: '3.9'
-  TITILER_VERSION: '0.11.0'
 
 jobs:
   build:
@@ -39,7 +38,6 @@ jobs:
           cache-to: type=gha,mode=max
           build-args: |
             PYTHON_VERSION=${{ env.PYTHON_VERSION }}
-            TITILER_VERSION=${{ env.TITILER_VERSION }}
 
       - name: Create Package
         run: |
@@ -64,7 +62,7 @@ jobs:
 
       - name: Print Version
         run: |
-          echo ${{ steps.titiler_version.outputs.version }}
+          echo "${{ steps.titiler_version.outputs.version }}"
 
       - name: Install dependencies
         run: |
