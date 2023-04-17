@@ -1,0 +1,9 @@
+
+titiler.core==0.11.6
+titiler.extensions[stac,cogeo]==0.11.6
+titiler.mosaic==0.11.6
+titiler.application==0.11.6
+mangum
+requests
+pyyaml
+jinja2
