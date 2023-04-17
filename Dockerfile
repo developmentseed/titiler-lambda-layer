@@ -1,8 +1,6 @@
 ARG PYTHON_VERSION
 FROM public.ecr.aws/lambda/python:${PYTHON_VERSION}
 
-ARG TITILER_VERSION
-
 ENV PREFIX /opt
 RUN mkdir ${PREFIX}/python
 
@@ -14,15 +12,9 @@ RUN yum update -y
 
 RUN pip install pip -U
 
+COPY requirements.txt requirements.txt
 RUN pip install \
-    titiler.core==${TITILER_VERSION} \
-    titiler.extensions["stac,cogeo"]==${TITILER_VERSION} \
-    titiler.mosaic==${TITILER_VERSION} \
-    titiler.application==${TITILER_VERSION} \
-    mangum \
-    requests \
-    pyyaml \
-    jinja2 \
+    -r requirements.txt \
     --no-binary pydantic \
     -t $PREFIX/python
 
