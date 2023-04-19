@@ -34,7 +34,6 @@ def main():
         client = session.client("lambda")
         for layer in layers:
             response = client.list_layer_versions(LayerName=layer)
-            print(response)
             latest = response["LayerVersions"][0]
             res["layers"].append(dict(
                 name=layer,

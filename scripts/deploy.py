@@ -50,7 +50,7 @@ def main(runtime, version, deploy):
             s3 = session.client("s3", region_name=region)
 
             try:
-                s3.head_bucket(Bucket=f"lambgeo-{region}")
+                s3.head_bucket(Bucket=f"titiler-layers-{region}")
             except client.exceptions.ClientError:
                 ops = {}
                 if region != "us-east-1":
@@ -58,12 +58,12 @@ def main(runtime, version, deploy):
                         "LocationConstraint": region
                     }
 
-                s3.create_bucket(Bucket=f"lambgeo-{region}", **ops)
+                s3.create_bucket(Bucket=f"titiler-layers-{region}", **ops)
 
             with open("package.zip", "rb") as data:
                 s3.upload_fileobj(
                     data,
-                    f"lambgeo-{region}",
+                    f"titiler-layers-{region}",
                     f"layers/titiler{version_nodot}.zip",
                 )
 
@@ -71,7 +71,7 @@ def main(runtime, version, deploy):
             res = client.publish_layer_version(
                 LayerName="titiler",
                 Content={
-                    "S3Bucket": f"lambgeo-{region}",
+                    "S3Bucket": f"titiler-layers-{region}",
                     "S3Key": f"layers/titiler{version_nodot}.zip",
                 },
                 CompatibleRuntimes=[f"python{runtime}"],
