@@ -43,7 +43,7 @@ def main(runtime, version):
         s3_bucket = f"titiler-layers-{region}"
         s3_key = f"titiler{version_nodot}.zip"
 
-        click.echo(f"Uploading package to S3 s3://{s3_bucket}/s3_key", err=True)
+        click.echo(f"Uploading package to S3 s3://{s3_bucket}/{s3_key}", err=True)
 
         try:
             s3_client.head_bucket(Bucket=s3_bucket)
