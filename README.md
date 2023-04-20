@@ -1,8 +1,10 @@
 # TiTiler AWS Lambda Layers
 
-<a href="https://github.com/lambgeo/titiler-layer/actions?query=workflow%3ACI" target="_blank">
-    <img src="https://github.com/lambgeo/titiler-layer/workflows/CI/badge.svg" alt="Test">
+<a href="https://github.com/developmentseed/titiler-lambda-layer/actions?query=workflow%3ACI" target="_blank">
+    <img src="https://github.com/developmentseed/titiler-lambda-layer/workflows/CI/badge.svg" alt="Test">
 </a>
+
+## Layers
 
 | Layer Version | TiTiler Version | Python Version |
 |             --|               --|              --|

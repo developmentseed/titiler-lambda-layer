@@ -28,12 +28,10 @@ AWS_REGIONS = [
 
 @click.command()
 @click.argument('runtime', type=str)
-@click.argument('version', type=str)
 @click.option('--deploy', is_flag=True)
-def main(runtime, version, deploy):
+def main(runtime, deploy):
     """Build and Deploy Layers."""
-    version_nodot = version.replace(".", "")
-    description = f"TiTiler Lambda Layer ({version})"
+    description = "TiTiler Lambda Layer"
 
     if deploy:
         session = boto3_session()
@@ -46,38 +44,17 @@ def main(runtime, version, deploy):
             click.echo(f"AWS Region: {region}", err=True)
             client = session.client("lambda", region_name=region, config=config)
 
-            # upload the package to s3
-            s3 = session.client("s3", region_name=region)
-
-            try:
-                s3.head_bucket(Bucket=f"titiler-layers-{region}")
-            except client.exceptions.ClientError:
-                ops = {}
-                if region != "us-east-1":
-                    ops["CreateBucketConfiguration"] = {
-                        "LocationConstraint": region
-                    }
-
-                s3.create_bucket(Bucket=f"titiler-layers-{region}", **ops)
-
-            with open("package.zip", "rb") as data:
-                s3.upload_fileobj(
-                    data,
-                    f"titiler-layers-{region}",
-                    f"layers/titiler{version_nodot}.zip",
+            with open("package.zip", "rb") as package:
+                click.echo("Publishing new version", err=True)
+                res = client.publish_layer_version(
+                    LayerName="titiler",
+                    Content={
+                        "ZipFile": package.read(),
+                    },
+                    CompatibleRuntimes=[f"python{runtime}"],
+                    Description=description,
+                    LicenseInfo="MIT"
                 )
-
-            click.echo("Publishing new version", err=True)
-            res = client.publish_layer_version(
-                LayerName="titiler",
-                Content={
-                    "S3Bucket": f"titiler-layers-{region}",
-                    "S3Key": f"layers/titiler{version_nodot}.zip",
-                },
-                CompatibleRuntimes=[f"python{runtime}"],
-                Description=description,
-                LicenseInfo="MIT"
-            )
 
             click.echo("Adding permission", err=True)
             client.add_layer_version_permission(
@@ -87,13 +64,6 @@ def main(runtime, version, deploy):
                 Action='lambda:GetLayerVersion',
                 Principal='*',
             )
-
-
-def head_bucket(name, client):
-    try:
-        return client.head_bucket(Bucket=name)
-    except client.exceptions.ClientError:
-        return False
 
 
 if __name__ == '__main__':
