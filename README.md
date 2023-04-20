@@ -1,24 +1,20 @@
-# TiTiler Lambda Layers
+# TiTiler AWS Lambda Layers
 
-<a href="https://github.com/lambgeo/titiler-layer/actions?query=workflow%3ACI" target="_blank">
-    <img src="https://github.com/lambgeo/titiler-layer/workflows/CI/badge.svg" alt="Test">
+<a href="https://github.com/developmentseed/titiler-lambda-layer/actions?query=workflow%3ACI" target="_blank">
+    <img src="https://github.com/developmentseed/titiler-lambda-layer/workflows/CI/badge.svg" alt="Test">
 </a>
 
-### TiTiler Version
+## Layers
 
-| TiTiler Version | Layer Version |
-|               --|             --|
-|           0.7.1 |             2 |
-|           0.8.1 |             3 |
-|          0.10.2 |             4 |
-|          0.11.0 |             5 |
-|          0.11.6 |             6 |
+| Layer Version | TiTiler Version | Python Version |
+|             --|               --|              --|
+|             1 |          0.11.6 |           3.10 |
 
-### Arns format
+#### Arns format
 
-- `arn:aws:lambda:${region}:524387336408:layer:titiler:${version}`
+- `arn:aws:lambda:${region}:552819999234:layer:titiler:${version}`
 
-### Regions
+#### Regions
 - ap-northeast-1
 - ap-northeast-2
 - ap-south-1
@@ -38,14 +34,13 @@
 
 See [full list of ARN](/arns.json)
 
-
-### SAM application
+## SAM application
 
 <p><a href="https://console.aws.amazon.com/lambda/home?#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:552819999234:applications/TiTiler" rel="noreferrer"><img src="https://cdn.rawgit.com/buildkite/cloudformation-launch-stack-button-svg/master/launch-stack.svg" alt="Launch Stack"></a></p>
 
 Link: https://serverlessrepo.aws.amazon.com/applications/us-east-1/552819999234/TiTiler
 
 > **Note**
-> You can change the TiTiler version by changing the Lambda Layer version `LambdaLayerVersion` parameter before deploying.
+> You can change the `TiTiler` version by changing the Lambda Layer version `LayerVersion` parameter before deploying.
 
 see: [SAM Application template](/sam.yml)
