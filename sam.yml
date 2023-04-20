@@ -29,7 +29,7 @@ Parameters:
 
   LayerVersion:
     Type: String
-    Default: 1
+    Default: 2
 
 Resources:
   TiTiler:
@@ -39,7 +39,7 @@ Resources:
       Handler: index.handler
       Description: 'Titiler: Dynamic tiler'
       Layers:
-        - !Sub arn:aws:lambda:${AWS::Region}:552819999234:layer:titiler-py10:${LayerVersion}
+        - !Sub arn:aws:lambda:${AWS::Region}:552819999234:layer:titiler:${LayerVersion}
 
       InlineCode: |
         import logging
