@@ -70,7 +70,7 @@ jobs:
 
       - name: Deploy layers
         if: github.ref == 'refs/heads/main'
-        run: python scripts/deploy.py ${{ env.PYTHON_VERSION }} --deploy
+        run: python scripts/deploy.py ${{ env.PYTHON_VERSION }} ${{ steps.titiler_version.outputs.version }}
 
   update-layer:
     needs: [build]
