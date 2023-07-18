@@ -29,7 +29,7 @@ Parameters:
 
   LayerVersion:
     Type: String
-    Default: 3
+    Default: 4
 
 Resources:
   TiTiler:

@@ -8,7 +8,7 @@
 
 | Layer Version | TiTiler Version | Python Version |
 |             --|               --|              --|
-|             3 |          0.11.6 |           3.10 |
+|             4 |          0.12.0 |           3.10 |
 
 #### Arns format
 
