@@ -1,6 +1,12 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    paths:
+      - 'Dockerfile'
+      - 'requirements.txt'
+      - 'scripts/create-lambda-layer.sh'
+      - 'scripts/deploy.py'
 
 env:
   PYTHON_VERSION: '3.10'
