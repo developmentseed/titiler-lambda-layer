@@ -29,6 +29,7 @@ AWS_REGIONS = [
 def main(runtime, version):
     """Build and Deploy Layers."""
     version_nodot = version.replace(".", "")
+    runtime_nodot = runtime.replace(".", "")
 
     session = boto3_session()
 
@@ -41,7 +42,7 @@ def main(runtime, version):
         s3_client = session.client("s3", region_name=region)
 
         s3_bucket = f"titiler-layers-{region}"
-        s3_key = f"titiler{version_nodot}.zip"
+        s3_key = f"titiler{version_nodot}-py{runtime_nodot}.zip"
 
         click.echo(f"Uploading package to S3 s3://{s3_bucket}/{s3_key}", err=True)
 
@@ -67,7 +68,7 @@ def main(runtime, version):
             LayerName="titiler",
             Content={"S3Bucket": s3_bucket, "S3Key": s3_key},
             CompatibleRuntimes=[f"python{runtime}"],
-            Description=f"TiTiler Lambda Layer ({version})",
+            Description=f"TiTiler Lambda Layer ({version}) - for Python {runtime}",
             LicenseInfo="MIT",
         )
 
