@@ -6,9 +6,25 @@
 
 ## Layers
 
-| Layer Version | TiTiler Version | Python Version |
-|             --|               --|              --|
-|             9 |          0.15.0 |           3.10 |
+| Layer Version  | TiTiler Version | Python Version |
+|              --|               --|              --|
+|             10 |          0.15.0 |           3.11 |
+
+**Older version**
+
+| Layer Version  | TiTiler Version | Python Version |
+|              --|               --|              --|
+|              9 |          0.15.0 |           3.10 |
+|              8 |          0.14.0 |           3.10 |
+|              7 |          0.13.3 |           3.10 |
+|              6 |          0.13.1 |           3.10 |
+|              5 |          0.13.0 |           3.10 |
+|              4 |          0.12.0 |           3.10 |
+|              3 |          0.11.6 |           3.10 |
+|              2 |          0.11.6 |           3.10 |
+|              1 |          0.11.6 |           3.10 |
+
+
 
 #### Arns format
 
