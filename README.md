@@ -8,12 +8,13 @@
 
 | Layer Version  | TiTiler Version | Python Version |
 |              --|               --|              --|
-|             12 |          0.17.3 |           3.11 |
+|             13 |          0.18.1 |           3.11 |
 
 **Older version**
 
 | Layer Version  | TiTiler Version | Python Version |
 |              --|               --|              --|
+|             12 |          0.17.3 |           3.11 |
 |             11 |          0.15.6 |           3.11 |
 |             10 |          0.15.0 |           3.11 |
 |              9 |          0.15.0 |           3.10 |
