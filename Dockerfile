@@ -10,10 +10,10 @@ ENV \
 
 RUN yum update -y
 
-RUN pip install pip -U
+RUN python -m pip install pip -U
 
 COPY requirements.txt requirements.txt
-RUN pip install \
+RUN python -m pip install \
     -r requirements.txt \
     --no-binary pydantic \
     -t $PREFIX/python
