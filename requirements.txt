@@ -1,4 +1,4 @@
-numexpr==2.10.0
+numexpr==2.10.2
 titiler.core==0.19.1
 titiler.extensions[stac,cogeo]==0.19.1
 titiler.mosaic==0.19.1
