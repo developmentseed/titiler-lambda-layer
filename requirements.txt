@@ -1,8 +1,8 @@
 numexpr==2.10.0
-titiler.core==0.19.1
-titiler.extensions[stac,cogeo]==0.19.1
-titiler.mosaic==0.19.1
-titiler.application==0.19.1
+titiler.core==0.20.1
+titiler.extensions[stac,cogeo]==0.20.1
+titiler.mosaic==0.20.1
+titiler.application==0.20.1
 mangum
 requests
 pyyaml
