@@ -3,7 +3,7 @@ echo "-----------------------"
 echo "Creating lambda layer"
 echo "-----------------------"
 
-dnf install -y zip binutils
+#dnf install -y zip binutils
 
 echo "Remove lambda python packages"
 rm -rdf $PREFIX/python/boto3* \
@@ -22,9 +22,10 @@ find $PREFIX/python -type d -a -name '__pycache__' -print0 | xargs -0 rm -rf
 find $PREFIX/python -type f -a -name '*.py' -print0 | xargs -0 rm -f
 
 # Ref: https://github.com/developmentseed/titiler/discussions/1108#discussioncomment-13045681
-cp /usr/lib64/libexpat.so.1 $PREFIX/python
+mkdir $PREFIX/lib/
+cp /usr/lib64/libexpat.so.1 $PREFIX/lib/
 
 echo "Create archives"
-cd $PREFIX && zip -r9q /tmp/package.zip python
+cd $PREFIX && zip -r9q /tmp/package.zip python && zip -r9q /tmp/package.zip lib
 
 cp /tmp/package.zip /local/package.zip
