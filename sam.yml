@@ -29,13 +29,13 @@ Parameters:
 
   LayerVersion:
     Type: String
-    Default: 15
+    Default: 17
 
 Resources:
   TiTiler:
     Type: AWS::Serverless::Function
     Properties:
-      Runtime: python3.11
+      Runtime: python3.12
       Handler: index.handler
       Description: 'Titiler: Dynamic tiler'
       Layers:
