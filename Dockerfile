@@ -1,14 +1,10 @@
-ARG PYTHON_VERSION
+ARG PYTHON_VERSION=3.12
 FROM public.ecr.aws/lambda/python:${PYTHON_VERSION}
 
 ENV PREFIX /opt
 RUN mkdir ${PREFIX}/python
 
-ENV \
-  LANG=en_US.UTF-8 \
-  LC_ALL=en_US.UTF-8
-
-RUN yum update -y
+RUN dnf install -y gcc-c++ && dnf clean all
 
 RUN python -m pip install pip -U
 
